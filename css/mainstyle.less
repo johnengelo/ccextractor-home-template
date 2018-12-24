@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+/* -- Background Color Variable -- */
+@bg-color: #222;
+
+/* -- Template Font Family -- */
+@font: "Roboto", sans-serif;
+
+/* -- Font Weights -- */
+@light-font: 300;
+@reg-font: 600;
+@bold-font: 900;
+
+/* -- General Variables -- */
+@bl-1: #6497B2;
+@zero: 0;
+@textmask: linear-gradient(90deg, rgba(9,79,121,1) 0%, rgba(0,212,255,1) 100%);
+@3f: #FFF;
+
+
+body {
+    background-image: url('../images/pagesBackground.svg');
+    background-color: #222;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+#navbar {
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .menu {
+    position: relative;
+    top: -100px;
+    z-index: 1;
+    height: 5rem;
+    width: 5rem;
+    background: #FFF;
+    transition: .5s ease-in-out;
+    box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
+    }
+    .hamburger {
+        position: absolute;
+        margin-left: -1rem;
+        margin-top: -1rem;
+        top: 135px;
+        left: 50px;
+        width: 30px;
+        height: 2px;
+        background: @3f;
+        display: block;
+        transform-origin: center;
+        transition: .5s ease-in-out;
+        &:after,
+        &:before {
+            transition: .5s ease-in-out;
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+        &:before {
+            background: @3f;
+            top: -10px;
+        }
+        &:after {
+            background: @3f;
+            bottom: -10px;
+        }
+    }
+    input {
+        display: none;
+    }
+    input:checked + .menu {
+        box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
+        border-radius: 0;
+        .hamburger {
+            background-color: #6497B2;
+            transform: rotate(45deg);
+            &:after {
+                background-color: #6497B2;
+                transform: rotate(90deg);
+                bottom: 0;
+            }
+            &:before {
+                background-color: #6497B2;
+                transform: rotate(90deg);
+                top: 0;
+            }
+        }
+    }
+
+    input:checked + .menu + ul {
+        opacity: 1;
+    }
+
+    ul {
+        position: absolute;
+        z-index: 200;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        transition: .25s 0s ease-in-out;
+    }
+
+    a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+/* -- Hero Section -- */
+
+.hero {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    p {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+    }
+    height: 175vh;
+    background: linear-gradient(140deg, #003763, #0080bb, #0098df, #006b9d, #003e5c, #00283c, #009cac, #00c1ba, #00908b, #0094cc, #00384d);
+    background-size: 2200% 2200%;
+
+    -webkit-animation: gradientScroll 30s ease infinite;
+    -moz-animation: gradientScroll 30s ease infinite;
+    animation: gradientScroll 30s ease infinite;
+
+    @-webkit-keyframes gradientScroll {
+       0%{background-position:5% 0%}
+       50%{background-position:96% 100%}
+       100%{background-position:5% 0%}
+    }
+    @-moz-keyframes gradientScroll {
+       0%{background-position:5% 0%}
+       50%{background-position:96% 100%}
+       100%{background-position:5% 0%}
+    }
+    @keyframes gradientScroll {
+       0%{background-position:5% 0%}
+       50%{background-position:96% 100%}
+       100%{background-position:5% 0%}
+    }
+
+    @-webkit-keyframes scroll {
+      0% {
+        -webkit-transform: translateY(0);
+      }
+      50% {
+        -webkit-transform: translateY(10px);
+      }
+      100% {
+        -webkit-transform: translateY(0);
+      }
+    }
+    @-moz-keyframes scroll {
+      0% {
+        -moz-transform: translateY(0);
+      }
+      50% {
+        -moz-transform: translateY(10px);
+      }
+      100% {
+        -moz-transform: translateY(0);
+      }
+    }
+    @keyframes scroll {
+      0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+      }
+      50% {
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+      100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+    .center-mouse {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      .mouse-scroll {
+        display: inline-block;
+        height: 44px;
+        width: 28px;
+        border-radius: 12px;
+        border: 2px solid white;
+        text-align: center;
+      }
+      .mouse-scroll:after {
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+        background-color: white;
+        border-radius: 50%;
+        content: "";
+        -webkit-animation: scroll 1.3s ease-out infinite forwards;
+        -moz-animation: scroll 1.3s ease-out infinite forwards;
+        animation: scroll 1.3s ease-out infinite forwards;
+      }
+    }
+}
+
+.skewed-bg {
+  padding: 10em 0;
+  -webkit-transform: skew(0deg, -10deg);
+  -moz-transform: skew(0deg, -10deg);
+  -ms-transform: skew(0deg, -10deg);
+  -o-transform: skew(0deg, -10deg);
+  transform: skew(0deg, -10deg);
+  margin-top: -200px;
+  .content {
+    -webkit-transform: skew(0deg, 10deg);
+    -moz-transform: skew(0deg, 10deg);
+    -ms-transform: skew(0deg, 10deg);
+    -o-transform: skew(0deg, 10deg);
+    transform: skew(0deg, 10deg);
+    h1 {
+      padding-top: 100px;
+      font-weight: normal;
+    }
+    p {
+      color: #ccfff2;
+    }
+  }
+}
+
+.download-button {
+    border-radius: 5rem;
+    border-color: white;
+    background-color: rgba(0,0,0,0);
+    color: white;
+}
+
+/* -- Features Section -- */
+
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+  50% {
+    -webkit-transform: translatey(-20px);
+            transform: translatey(-20px);
+  }
+  100% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+}
+
+@keyframes float {
+  0% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+  50% {
+    -webkit-transform: translatey(-20px);
+            transform: translatey(-20px);
+  }
+  100% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+}
+
+.features {
+    margin-top: 50vh;
+    background-color: transparent;
+    text-align: center;
+    align-content: center;
+    .feature-icons {
+        background-image: linear-gradient(90deg, rgba(9,79,121,1) 0%, rgba(0,212,255,1) 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-transform: translatey(0px);
+        transform: translatey(0px);
+        -webkit-animation: float 6s ease-in-out infinite;
+        animation: float 6s ease-in-out infinite;
+    }
+    .why-ccx{
+        align-content: center;
+        text-align: center;
+    }
+}
+
+.grid-item-divider {
+     display: block;
+     position: relative;
+     background-color: white;
+     height: 3px;
+     width: 3em;
+     right: 0;
+     margin: 2.5em auto 1em;
+     transform: scaleX(0.8);
+     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
